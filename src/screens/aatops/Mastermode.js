@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Slider } from 'react-native';
 import {
   Thumbnail,
   Container,
@@ -36,7 +36,7 @@ const logo = require("../../../assets/record.png");
 class Mastermode extends Component {
   constructor() {
       super();
-      this.state = { iconName: logo, volumn: 0 };
+      this.state = { iconName: logo, volumn: 0, hvolumn: 0 };
     }
 
   render() {
@@ -106,6 +106,28 @@ class Mastermode extends Component {
         >
           <Text>{Number((this.state.volumn).toFixed(1))}</Text>
         </Badge>
+
+        <Slider
+            style={{width: 200, height: 40}}
+            minimumValue={0}
+            maximumValue={4}
+            minimumTrackTintColor="#33d9e1"
+            maximumTrackTintColor="#000000"
+            thumbTintColor="#33d9e1"
+            onValueChange={(value) => {
+              console.log('CHANGE', value);
+
+              this.setState({hvolumn: value });
+            }}
+          />
+
+          <Badge
+            style={{ backgroundColor: "black" }}
+            textStyle={{ color: "white" }}
+          >
+            <Text>{Number((this.state.hvolumn).toFixed(1))}</Text>
+          </Badge>
+
 
         </Content>
       </Container>
