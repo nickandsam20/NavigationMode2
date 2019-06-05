@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { StyleSheet } from 'react-native';
 import {
+  Thumbnail,
   Container,
   Header,
   Title,
@@ -13,6 +14,9 @@ import {
   Right,
   Body
 } from "native-base";
+
+import VerticalSlider from 'rn-vertical-slider'
+
 //import styles from "./styles";
 const styles=StyleSheet.create({
   container: {
@@ -26,10 +30,17 @@ const styles=StyleSheet.create({
     marginBottom: 10
   }
 });
+const logo = require("../../../assets/record.png");
 
 
 class Mastermode extends Component {
+  constructor() {
+      super();
+      this.state = { iconName: logo, volumn: 0 };
+    }
+
   render() {
+    console.log('now', this.state.volumn);
     return (
       <Container style={styles.container}>
         <Header style={styles.header}>
@@ -48,21 +59,59 @@ class Mastermode extends Component {
         </Header>
 
         <Content padder>
-          <Badge primary style={styles.mb}>
-            <Icon
-              name="people"
-              style={{ fontSize: 15, color: "#fff", lineHeight: 20 }}
-            />
-          </Badge>
+        <Button
+          transparent
+          onPress={ () =>{ this.setState({iconName: require("../../../assets/camera.png") });
+          this.props.navigation.navigate("Recordermode")}}
+        >
+              <Thumbnail square small source={this.state.iconName} style={{marginBottom: 10}} />
+          </Button>
+
           <Badge
             style={{ backgroundColor: "black" }}
             textStyle={{ color: "white" }}
           >
             <Text>1866</Text>
           </Badge>
+
+
+          <VerticalSlider
+          value={0}
+          disabled={false}
+          min={0}
+          max={4}
+          onChange={(value) => {
+            console.log('CHANGE', value);
+
+            this.setState({volumn: value });
+          }}
+          onComplete={(value) => {
+            console.log("COMPLETE", value);
+
+          }}
+          width={15}
+          height={300}
+          step={0.1}
+          borderRadius={5}
+          minimumTrackTintColor={"#33d9e1"}
+          maximumTrackTintColor={"#000000"}
+          showBallIndicator
+          ballIndicatorColor={"gray"}
+          ballIndicatorTextColor={"white"}
+        />
+
+        <Badge
+          style={{ backgroundColor: "black" }}
+          textStyle={{ color: "white" }}
+        >
+          <Text>{Number((this.state.volumn).toFixed(1))}</Text>
+        </Badge>
+
         </Content>
       </Container>
     );
+
+    debugger;
   }
 }
 

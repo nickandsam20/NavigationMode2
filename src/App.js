@@ -181,7 +181,7 @@ const Drawer = createDrawerNavigator(
     NHDatePicker: { screen: NHDatePicker }
   },
   {
-    initialRouteName: "Home",
+    initialRouteName: "Mastermode",
     contentOptions: {
       activeTintColor: "#e91e63"
     },
@@ -317,7 +317,7 @@ const AppNavigator = createStackNavigator(
     AccordionCustomHeaderContent: { screen: AccordionCustomHeaderContent }
   },
   {
-    initialRouteName: "Selection",
+    initialRouteName: "Drawer",
     headerMode: "none"
   }
 );
