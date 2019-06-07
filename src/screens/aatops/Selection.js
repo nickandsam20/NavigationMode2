@@ -24,9 +24,16 @@ const styles=StyleSheet.create({
 export default class Connection extends Component{
     constructor(props){
       super(props);
+    //  this.redirect=this.redirect.bind(this);
+      let p="123";
     }
 
+    // redirect(){
+    //   let t=this.props.navigation.state.params;
+    //   this.props.navigation.navigate("Master1",{props:t});
+    // }
     render(){
+      //console.log("selection props",this.props.screenProps);
       return(
         <View style={styles.background_view}>
             <View style={{flex:15,alignItems:'center'}}>
@@ -59,10 +66,12 @@ export default class Connection extends Component{
 
           <View style={{flex:8, alignItems:'flex-start',flexDirection:'row'} }>
               <View style={{flex:1}}>
-                  <Button type='solid' title="Recoder" buttonStyle={styles.button} onPress={()=>this.props.navigation.navigate("Recordermode")}/>
+                  <Button type='solid' title="Recoder" buttonStyle={styles.button} onPress={()=>this.props.navigation.navigate("Master_main_page")}/>
               </View>
               <View style={{flex:1}}>
-                  <Button type='solid' title="Master" buttonStyle={styles.button} onPress={()=>this.props.navigation.navigate("Mastermode")}/>
+                  <Button type='solid' title="Master" buttonStyle={styles.button} onPress={()=>{
+                    this.props.navigation.navigate("Master1");
+                  }}/>
               </View>
 
 

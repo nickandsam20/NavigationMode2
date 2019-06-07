@@ -45,18 +45,19 @@ export default class Top2 extends Component<Props>{
 
   }
   render(){
-      let page;
+    //  let page=<Selection ch_page={this.ch_page}/>;
+    let page;
+    //this.props.navigation.navigate("Selection");
 
+      // if(this.state.page==0) page= <Selection ch_page={this.ch_page} />
+      // else if(this.state.page==1)page=<Master1 ch_page={this.ch_page} send={this.connect.send} set_room_number={this.set_room_number}
+      //   ch_mode={this.ch_mode}/>
+      // else if(this.state.page==2)page=<Master2 ch_page={this.ch_page} room={this.state.room}/>
+      // else if(this.state.page==3)page=<Master_main_page room={this.state.room} connected_device_cnt={this.state.connected_device_cnt} connected_device={this.state.connected_device}
+      // disconnected_device_cnt={this.state.disconnected_device_cnt} disconnected_device={this.state.disconnected_device}/>;
+      // else page =<Text> you are {this.state.mode}</Text>
 
-      if(this.state.page==0) page= <Selection ch_page={this.ch_page} />
-      else if(this.state.page==1)page=<Master1 ch_page={this.ch_page} send={this.connect.send} set_room_number={this.set_room_number}
-        ch_mode={this.ch_mode}/>
-      else if(this.state.page==2)page=<Master2 ch_page={this.ch_page} room={this.state.room}/>
-      else if(this.state.page==3)page=<Master_main_page room={this.state.room} connected_device_cnt={this.state.connected_device_cnt} connected_device={this.state.connected_device}
-      disconnected_device_cnt={this.state.disconnected_device_cnt} disconnected_device={this.state.disconnected_device}/>;
-      else page =<Text> you are {this.state.mode}</Text>
-
-      return page;
+      return null;
   }
 
    ch_page(p){

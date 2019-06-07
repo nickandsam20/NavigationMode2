@@ -19,7 +19,7 @@ const drawerImage = require("../../../assets/account.jpg");
 const datas = [
   {
     name: "Connection",
-    route: "Top2",  //要連到的mod
+    route: "Selection",  //要連到的mod
     icon: "people",
     bg: "#C5F442"
   },

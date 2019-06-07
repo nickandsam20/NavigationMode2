@@ -1,6 +1,7 @@
 export default class Connection{
-  constructor(){
+  constructor(fire){
     this.ws=new WebSocket('ws://10.0.2.2:3000');
+    this.send=this.send.bind(this);
     this.ws.onopen=()=>{
       console.log("connect to server");
     };
@@ -9,12 +10,15 @@ export default class Connection{
       console.log(e.message);
     };
     this.ws.onmessage=e=>{
-        
+
+        console.log("message");
+        fire(e.data);
     }
     this.ws.onclose=e=>{
       console.log(e.code,e.reason);
     };
     this.send=this.send.bind(this);
+
   }
 
   send(e){
